@@ -5,10 +5,10 @@ set -e
 
 # List of input/output pairs
 declare -A MODELS=(
-  ["mlperf_tiny/benchmark/training/image_classification/trained_models/pretrainedResnet_quant.tflite"]="outputs/mlperf_tiny/resnet18_int8.mlir"
-  ["mlperf_tiny/benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite"]="outputs/mlperf_tiny/mobilenet_int8.mlir"
-  ["mlperf_tiny/benchmark/training/anomaly_detection/trained_models/ad01_int8.tflite"]="outputs/mlperf_tiny/anomaly_int8.mlir"
-  ["mlperf_tiny/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite"]="outputs/mlperf_tiny/kws_int8.mlir"
+  ["mlperf_tiny/benchmark/training/image_classification/trained_models/pretrainedResnet_quant.tflite"]="outputs/mlperf_tiny_resnet18_int8.mlir"
+  ["mlperf_tiny/benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite"]="outputs/mlperf_tiny_mobilenet_int8.mlir"
+  ["mlperf_tiny/benchmark/training/anomaly_detection/trained_models/ad01_int8.tflite"]="outputs/mlperf_tiny_anomaly_int8.mlir"
+  ["mlperf_tiny/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite"]="outputs/mlperf_tiny_kws_int8.mlir"
 )
 
 # Iterate over models and run the converter

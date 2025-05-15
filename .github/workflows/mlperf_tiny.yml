@@ -26,10 +26,10 @@ jobs:
         run: |
           set -e
           for model in \
-            outputs/mlperf_tiny/resnet18_int8.mlir \
-            outputs/mlperf_tiny/mobilenet_int8.mlir \
-            outputs/mlperf_tiny/anomaly_int8.mlir \
-            outputs/mlperf_tiny/kws_int8.mlir; do
+            outputs/mlperf_tiny_resnet18_int8.mlir \
+            outputs/mlperf_tiny_mobilenet_int8.mlir \
+            outputs/mlperf_tiny_anomaly_int8.mlir \
+            outputs/mlperf_tiny_kws_int8.mlir; do
             echo "Validating $model"
             pixi run -e test-mlir mlir-opt "$model" > /dev/null
           done
@@ -44,4 +44,4 @@ jobs:
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
-          files: outputs/**/*
+          files: outputs/*
