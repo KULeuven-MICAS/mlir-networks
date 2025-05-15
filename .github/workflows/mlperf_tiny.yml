@@ -1,0 +1,49 @@
+name: MLPerf Tiny Models
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  convert-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.8.8
+        with:
+          cache: true
+
+      - name: Run model fetch script
+        run: |
+          pixi run -e mlperf-tiny ./get_mlperftiny.sh
+
+      - name: Check MLIR parsing
+        run: |
+          set -e
+          for model in \
+            outputs/mlperf_tiny/resnet18_int8.mlir \
+            outputs/mlperf_tiny/mobilenet_int8.mlir \
+            outputs/mlperf_tiny/anomaly_int8.mlir \
+            outputs/mlperf_tiny/kws_int8.mlir; do
+            echo "Validating $model"
+            pixi run -e test-mlir mlir-opt "$model" > /dev/null
+          done
+
+      - name: Upload outputs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: converted-models
+          path: outputs/
+
+      - name: Upload artifacts to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: outputs/**/*

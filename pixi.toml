@@ -12,6 +12,14 @@ version = "0.1.0"
 [feature.tensorflow.dependencies]
 tensorflow = "==2.16.2"
 python = "==3.12"
+mlir = "==19.1.0"
+
+[feature.test-mlir.dependencies]
+mlir = "==20.1.1"
+
+[feature.xdsl.pypi-dependencies]
+xdsl = "*"
 
 [environments]
-mlperf-tiny = ["tensorflow"]
+mlperf-tiny = ["tensorflow", "xdsl"]
+test-mlir = ["test-mlir"]
