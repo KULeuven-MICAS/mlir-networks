@@ -21,6 +21,6 @@ mlir = "==20.1.1"
 xdsl = "*"
 
 [environments]
-default = []
+default = ["test-mlir"]
 mlperf-tiny = ["tensorflow", "xdsl"]
 test-mlir = ["test-mlir"]
