@@ -11,7 +11,8 @@ def convert_mlir_19_to_20(input_file, output_file):
     context = Context(allow_unregistered=True)
     # read file:
     with open(input_file, "r") as infile:
-        module = Parser(context, infile.read()).parse_module()
+        module = Parser(context, infile.read()).parse_module().ops.first
+        assert module is not None
 
     for op in module.walk():
         if "op_name__" not in op.attributes:
