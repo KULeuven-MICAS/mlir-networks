@@ -17,6 +17,7 @@ for INPUT in "${!MODELS[@]}"; do
   MLIR_BYTECODE="${OUTPUT%.mlir}.bc.mlir"
   MLIR_19="${OUTPUT%.mlir}.old.mlir"
   OUTPUT_DIR=$(dirname "$OUTPUT")
+  JSON_DATA="${OUTPUT%.mlir}_sample_data.json"
 
   echo "Processing: $INPUT →  $OUTPUT"
   mkdir -p "$OUTPUT_DIR"
@@ -32,6 +33,8 @@ for INPUT in "${!MODELS[@]}"; do
 
   # remove intermediate files
   rm "$MLIR_BYTECODE" "$MLIR_19"
+
+  python tflite_generate_data.py "$INPUT" "$JSON_DATA"
 
   echo ""
 
