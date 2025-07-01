@@ -8,6 +8,7 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
+opencv = ">=4.10.0,<5"
 
 [feature.tensorflow.dependencies]
 tensorflow = "==2.16.2"
@@ -23,4 +24,8 @@ xdsl = "*"
 [environments]
 default = ["test-mlir"]
 mlperf-tiny = ["tensorflow", "xdsl"]
+ailia = ["tensorflow", "xdsl"]
 test-mlir = ["test-mlir"]
+
+[pypi-dependencies]
+ailia-tflite = ">=1.2.2.0, <2"
