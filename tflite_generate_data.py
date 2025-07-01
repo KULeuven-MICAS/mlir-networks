@@ -59,8 +59,8 @@ if __name__ == "__main__":
     with open(args.output_file, "w") as f:
         json.dump(
             {
-                "input": {"dtype": input.dtype, "data": input.tolist()[0]},
-                "output": {"dtype": output.dtype, "data": output.tolist()[0]},
+                "input": {"dtype": str(input.dtype), "data": input.tolist()[0]},
+                "output": {"dtype": str(output.dtype), "data": output.tolist()[0]},
             },
             f,
         )
