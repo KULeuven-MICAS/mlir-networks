@@ -15,6 +15,8 @@ def inspect_tflite_model(model_path):
     input_details = interpreter.get_input_details()
     input_data = []
 
+    const_data = []
+
     print("\n--- Model Inputs ---")
     for i, detail in enumerate(input_details):
         shape = detail["shape"]
@@ -35,6 +37,7 @@ def inspect_tflite_model(model_path):
 
         print(f"Input {i}: name={detail['name']}, shape={shape}, dtype={dtype}")
         print(rand_input, "\n")
+        const_data.append(rand_input)
 
     # Run inference
     interpreter.invoke()
@@ -50,6 +53,7 @@ def inspect_tflite_model(model_path):
                 f"{tensor['name']} (index {tensor['index']}): shape={data.shape}, dtype={data.dtype}"
             )
             print(data, "\n")
+            const_data.append(data)
         except ValueError:
             print(f"{tensor['name']} (index {tensor['index']}): <unavailable>\n")
 
@@ -67,9 +71,21 @@ def inspect_tflite_model(model_path):
                     f"{tensor['name']} (index {tensor['index']}): shape={data.shape}, dtype={data.dtype}"
                 )
                 print(data, "\n")
+                const_data.append(data)
         except ValueError:
             print(f"✗ {tensor['name']} (not accessible)")
             continue
+
+    input = const_data[0].astype(np.int32)
+    weight = const_data[12].astype(np.int32)
+    bias = const_data[2]
+
+    result = (((input - 89) @ weight.T) + bias) * 0.0029795 - 128
+    result = np.clip(result, -128, 127)
+    result = np.round(result).astype(np.int8)
+    print(result)
+
+    breakpoint()
 
 
 if __name__ == "__main__":
