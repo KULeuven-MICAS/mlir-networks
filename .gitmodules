@@ -1,3 +1,6 @@
 [submodule "mlperf_tiny"]
 	path = mlperf_tiny
 	url = git@github.com:mlcommons/tiny.git
+[submodule "ailia-models-tflite"]
+	path = ailia-models-tflite
+	url = git@github.com:axinc-ai/ailia-models-tflite.git
