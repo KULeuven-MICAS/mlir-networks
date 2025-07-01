@@ -27,6 +27,6 @@ python mlir_19_to_20.py -i "$MLIR_19" -o "$OUTPUT"
 # remove intermediate files
 rm "$MLIR_BYTECODE" "$MLIR_19"
 
-python tflite_generate_data.py "$INPUT" "$JSON_DATA"
+python tflite_generate_data.py "$TFLITE_FILE" "$JSON_DATA"
 
 echo ""
