@@ -1,10 +1,11 @@
 import numpy as np
+import numpy.typing as npt
 import json
 import tensorflow as tf
 import argparse
 
 
-def generate_data(model_path):
+def generate_data(model_path) -> tuple[npt.NDArray, npt.NDArray]:
     # Load TFLite model
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
@@ -41,6 +42,9 @@ def generate_data(model_path):
     output_details = interpreter.get_output_details()
     output_data = interpreter.get_tensor(output_details[0]["index"])
 
+    assert isinstance(input_data, np.ndarray), "Input data is not a numpy array"
+    assert isinstance(output_data, np.ndarray), "Output data is not a numpy array"
+
     return input_data, output_data
 
 
@@ -55,8 +59,8 @@ if __name__ == "__main__":
     with open(args.output_file, "w") as f:
         json.dump(
             {
-                "input": input.tolist()[0],
-                "output": input.tolist()[0],
+                "input": {"dtype": input.dtype, "data": input.tolist()[0]},
+                "output": {"dtype": output.dtype, "data": output.tolist()[0]},
             },
             f,
         )
