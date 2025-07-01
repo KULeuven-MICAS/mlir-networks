@@ -1,4 +1,4 @@
-name: MLPerf Tiny Models
+name: Ailia SDK Models
 
 on:
   workflow_dispatch:
