@@ -19,7 +19,7 @@ mlir = "==19.1.0"
 mlir = "==20.1.1"
 
 [feature.xdsl.pypi-dependencies]
-xdsl = "*"
+xdsl = "==0.51.0"
 
 [environments]
 default = ["test-mlir"]

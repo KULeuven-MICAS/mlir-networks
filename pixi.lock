@@ -234,7 +234,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/0e/60/c9b68aed046d8457c85e7b167484e8931f1d01fc66425107c8e842056464/ailia_tflite-1.2.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/59/56/25ca7b848164b7d93dbd5fc97dd7751700c93e324fe854afbeb562ee2f98/immutabledict-4.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/33/55/af02708f230eb77084a299d7b08175cff006dea4f2721074b92cdb0296c0/ordered_set-4.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/65/7e/f3c8263d9049fd741a228647eebe596c626a34f6288e373657f0cfb20c8f/xdsl-0.43.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/89/0848a39f78f4d6616304e3ccc972004e67e1488a500012e3b7285aeec9cc/xdsl-0.51.0-py3-none-any.whl
   default:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
@@ -674,7 +674,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/0e/60/c9b68aed046d8457c85e7b167484e8931f1d01fc66425107c8e842056464/ailia_tflite-1.2.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/59/56/25ca7b848164b7d93dbd5fc97dd7751700c93e324fe854afbeb562ee2f98/immutabledict-4.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/33/55/af02708f230eb77084a299d7b08175cff006dea4f2721074b92cdb0296c0/ordered_set-4.1.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/f3/32/ffc5f9b7f024d77cd57d0e195f0df23a68e96dcc3d0f8ae882d402f6b270/xdsl-0.37.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/19/89/0848a39f78f4d6616304e3ccc972004e67e1488a500012e3b7285aeec9cc/xdsl-0.51.0-py3-none-any.whl
   test-mlir:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
@@ -4544,7 +4544,8 @@ packages:
   - python
   license: BSD-3-Clause
   license_family: BSD
-  purls: []
+  purls:
+  - pkg:pypi/pycparser?source=hash-mapping
   size: 110100
   timestamp: 1733195786147
 - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.19.1-pyhd8ed1ab_0.conda
@@ -5356,52 +5357,10 @@ packages:
   purls: []
   size: 51689
   timestamp: 1718844051451
-- pypi: https://files.pythonhosted.org/packages/f3/32/ffc5f9b7f024d77cd57d0e195f0df23a68e96dcc3d0f8ae882d402f6b270/xdsl-0.37.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/19/89/0848a39f78f4d6616304e3ccc972004e67e1488a500012e3b7285aeec9cc/xdsl-0.51.0-py3-none-any.whl
   name: xdsl
-  version: 0.37.0
-  sha256: c1ef7709bed434d86ba559215026dfca7aef52b1e1edd64173275efcb8f4f7ce
-  requires_dist:
-  - immutabledict<4.2.2
-  - typing-extensions>=4.7,<5
-  - ordered-set==4.1.0
-  - toml<0.11 ; extra == 'dev'
-  - pytest-cov ; extra == 'dev'
-  - coverage<8.0.0 ; extra == 'dev'
-  - ipykernel ; extra == 'dev'
-  - pytest<8.4 ; extra == 'dev'
-  - nbval<0.12 ; extra == 'dev'
-  - filecheck==1.0.2 ; extra == 'dev'
-  - lit<19.0.0 ; extra == 'dev'
-  - marimo==0.13.6 ; extra == 'dev'
-  - pre-commit>=4.0.0,<5.0.0 ; extra == 'dev'
-  - ruff==0.11.9 ; extra == 'dev'
-  - nbconvert>=7.7.2,<8.0.0 ; extra == 'dev'
-  - textual-dev==1.7.0 ; extra == 'dev'
-  - pytest-asyncio==0.26.0 ; extra == 'dev'
-  - pyright==1.1.400 ; extra == 'dev'
-  - sympy==1.14.0 ; extra == 'dev'
-  - mkdocs-gen-files>=0.5.0 ; extra == 'docs'
-  - mkdocs-material>=9.5.49 ; extra == 'docs'
-  - mkdocs>=1.6.1 ; extra == 'docs'
-  - mkdocstrings[python]>=0.27.0 ; extra == 'docs'
-  - pymdown-extensions>=10.7 ; extra == 'docs'
-  - lzstring2 ; extra == 'docs'
-  - textual==3.2.0 ; extra == 'gui'
-  - pyclip==0.7 ; extra == 'gui'
-  - jax==0.6.0 ; extra == 'jax'
-  - numpy==2.2.5 ; extra == 'jax'
-  - riscemu==2.2.7 ; extra == 'riscv'
-  - asv>=0.6.4 ; extra == 'bench'
-  - snakeviz>=2.2.2 ; extra == 'bench'
-  - viztracer>=1.0.1 ; extra == 'bench'
-  - flameprof>=0.4 ; extra == 'bench'
-  - orjson>=3.10.15 ; extra == 'bench'
-  - pyinstrument>=5.0.1 ; extra == 'bench'
-  requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/65/7e/f3c8263d9049fd741a228647eebe596c626a34f6288e373657f0cfb20c8f/xdsl-0.43.0-py3-none-any.whl
-  name: xdsl
-  version: 0.43.0
-  sha256: bae25d55ed0bed789cf0868aa8567d19025cd6b2f23b95a248f603392146329d
+  version: 0.51.0
+  sha256: eeff28c51c9a21770d3e021532d93d38b012324959776eccbafd8badcd71e13b
   requires_dist:
   - immutabledict<4.2.2
   - typing-extensions>=4.7,<5
@@ -5412,34 +5371,20 @@ packages:
   - ipykernel ; extra == 'dev'
   - pytest<8.5 ; extra == 'dev'
   - nbval<0.12 ; extra == 'dev'
-  - filecheck==1.0.2 ; extra == 'dev'
+  - filecheck==1.0.3 ; extra == 'dev'
   - lit<19.0.0 ; extra == 'dev'
-  - marimo==0.14.9 ; extra == 'dev'
+  - marimo==0.15.2 ; extra == 'dev'
   - pre-commit>=4.0.0,<5.0.0 ; extra == 'dev'
-  - ruff==0.12.1 ; extra == 'dev'
+  - ruff==0.13.0 ; extra == 'dev'
   - nbconvert>=7.7.2,<8.0.0 ; extra == 'dev'
   - textual-dev==1.7.0 ; extra == 'dev'
-  - pytest-asyncio==1.0.0 ; extra == 'dev'
-  - pyright==1.1.402 ; extra == 'dev'
+  - pytest-asyncio==1.1.0 ; extra == 'dev'
+  - pyright==1.1.405 ; extra == 'dev'
   - sympy==1.14.0 ; extra == 'dev'
-  - mkdocs-gen-files>=0.5.0 ; extra == 'docs'
-  - mkdocs-material>=9.5.49 ; extra == 'docs'
-  - mkdocs>=1.6.1 ; extra == 'docs'
-  - mkdocstrings[python]>=0.27.0 ; extra == 'docs'
-  - pymdown-extensions>=10.7 ; extra == 'docs'
-  - lzstring2 ; extra == 'docs'
-  - textual>=3.0,<4 ; extra == 'gui'
+  - textual>=6,<7 ; extra == 'gui'
   - pyclip==0.7 ; extra == 'gui'
   - jax==0.6.0 ; extra == 'jax'
   - numpy==2.2.6 ; extra == 'jax'
-  - riscemu==2.2.7 ; extra == 'riscv'
-  - asv>=0.6.4 ; extra == 'bench'
-  - snakeviz>=2.2.2 ; extra == 'bench'
-  - viztracer>=1.0.1 ; extra == 'bench'
-  - flameprof>=0.4 ; extra == 'bench'
-  - orjson>=3.10.15 ; extra == 'bench'
-  - pyinstrument>=5.0.1 ; extra == 'bench'
-  - bytesight ; extra == 'bench'
   requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/xkeyboard-config-2.45-hb9d3cd8_0.conda
   sha256: a5d4af601f71805ec67403406e147c48d6bad7aaeae92b0622b7e2396842d3fe
